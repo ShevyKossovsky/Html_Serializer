@@ -1,0 +1,34 @@
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.exe
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.deps.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.runtimeconfig.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.dll
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.pdb
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.csproj.AssemblyReference.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.AssemblyInfoInputs.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.AssemblyInfo.cs
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.dll
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\refint\Html-Serializer.dll
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.pdb
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.genruntimeconfig.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\obj\Debug\net6.0\ref\Html-Serializer.dll
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Files\HtmlTags.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\c++\שבי קוסובסקי-שיעור6\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Files\HtmlVoidTags.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.exe
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Files\HtmlTags.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Files\HtmlVoidTags.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.deps.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.runtimeconfig.json
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.dll
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\bin\Debug\net6.0\Html-Serializer.pdb
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.csproj.AssemblyReference.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.AssemblyInfoInputs.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.AssemblyInfo.cs
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.dll
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\refint\Html-Serializer.dll
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.pdb
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\Html-Serializer.genruntimeconfig.cache
+C:\Users\user1\Desktop\הנדסת תוכנה\שנה ב\Practycode\2\Html-Serializer\Html-Serializer\obj\Debug\net6.0\ref\Html-Serializer.dll
