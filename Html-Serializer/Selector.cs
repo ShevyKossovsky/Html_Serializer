@@ -1,77 +1,82 @@
-﻿using Html_Serializer;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
- class Selector
+namespace HtmlSerializer
 {
-    public string TagName { get; set; }
-    public string Id { get; set; }
-    public List<string> Classes { get; set; } = new List<string>();
-    public Selector Parent { get; set; }
-    public Selector Child { get; set; }
-
-    public Selector()
+    public class Selector
     {
-        Classes = new List<string>();
-    }
-
-    public static Selector FromQueryString(string queryString)
-    {
-        string[] selectors = queryString.Split();
-        Selector root = new Selector();
-        Selector currentSelector = root;
-
-        foreach (string selectorString in selectors)
+        public string TagName { get; set; }
+        public string Id { get; set; }
+        public List<string> Classes { get; set; }
+        public Selector Parent { get; set; }
+        public Selector Child { get; set; }
+        #region 1
+        public  static Selector FromQueryString(string queryString)
         {
-            string[] parts = selectorString.Split('#');
-            if (parts.Length > 1)
+            var selectors = queryString.Split(' ');
+            var rootSelector = new Selector();
+            var currentSelector = rootSelector;
+
+            foreach (var selectorStr in selectors)
             {
-                currentSelector.Id = parts[1];
-                parts = parts[0].Split('.');
-            }
-            else
-            {
-                parts = selectorString.Split('.');
+                var parts = selectorStr.Split('#');
+                if (parts.Length > 1)
+                {
+                    currentSelector.Id = parts[1];
+                    parts = parts[0].Split('.');
+                }
+                else
+                {
+                    parts = selectorStr.Split('.');
+                }
+
+                if (!string.IsNullOrEmpty(parts[0]))
+                {
+                    currentSelector.TagName = parts[0];
+                }
+
+                currentSelector.Classes = new List<string>();
+
+                if (parts.Length > 1)
+                {
+                    currentSelector.Classes.AddRange(parts[1..]);
+                }
+
+                var newSelector = new Selector();
+                currentSelector.Child = newSelector;
+                newSelector.Parent = currentSelector;
+                currentSelector = newSelector;
             }
 
-            if (!string.IsNullOrEmpty(parts[0]))
+            return rootSelector;
+        }
+        public  override string ToString()
+        {
+            var result = TagName ?? string.Empty;
+
+            if (!string.IsNullOrEmpty(Id))
             {
-                currentSelector.TagName = parts[0];
+                result += $"#{Id}";
             }
 
-            for (int i = 1; i < parts.Length; i++)
+            if (Classes.Any())
             {
-                currentSelector.Classes.Add(parts[i]);
+                result += $".{string.Join(".", Classes)}";
             }
 
-            Selector newSelector = new Selector();
-            currentSelector.Child = newSelector;
-            newSelector.Parent = currentSelector;
-            currentSelector = newSelector;
+            return result;
+        }
+        #endregion
+        public Selector()
+        {
+            Classes = new List<string>();
         }
 
-        return root;
-    }
 
 
-    private static bool IsValidHtmlTagName(string tagName)
-    {
-        return HtmlHelper.Instance.HtmlTags.Contains(tagName) && HtmlHelper.Instance.HtmlVoidTags.Contains(tagName);
-    }
-    public override string ToString()
-    {
-
-        var result = TagName ?? string.Empty;
-
-        if (!string.IsNullOrEmpty(Id))
-        {
-            result += $"#{Id}";
-        }
-
-        if (Classes.Any())
-        {
-            result += $".{string.Join(".", Classes)}";
-        }
-
-        return result;
     }
 
 }

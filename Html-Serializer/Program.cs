@@ -1,6 +1,5 @@
-﻿using Html_Serializer;
+﻿using HtmlSerializer;
 using System;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
@@ -11,8 +10,7 @@ static async Task<string> Load(string url)
     var html = await response.Content.ReadAsStringAsync();
     return html;
 }
-//Build the elements tree:
-static HtmlElement Serialize(List<string> htmlLines)
+static HtmlElement BuildHtmlTree(List<string> htmlLines)
 {
     var root = new HtmlElement();
     var currentElement = root;
@@ -85,26 +83,81 @@ static HtmlElement Serialize(List<string> htmlLines)
 }
 static void PrintHtmlTree(HtmlElement element, string indent = "")
 {
-    Console.WriteLine($"{indent}<{element.Name}>");
+    Console.Write($"{indent}<{element.Name}");
 
-    foreach (var child in element.Children)
+    if (!string.IsNullOrEmpty(element.Id))
     {
-        PrintHtmlTree(child, indent + "  ");
+        Console.Write($" id=\"{element.Id}\"");
     }
 
+    if (element.Classes.Any())
+    {
+        Console.Write($" class=\"{string.Join(" ", element.Classes)}\"");
+    }
+
+    if (element.Attributes.Any())
+    {
+        Console.Write($" {string.Join(" ", element.Attributes)}");
+    }
+
+
     Console.WriteLine($"{indent}</{element.Name}>");
- 
+
+
+    if (element.Children.Any())
+    {
+        foreach (var child in element.Children)
+        {
+            PrintHtmlTree(child, indent + "  ");
+        }
+    }
+
+}
+static void PrintHtmlElement(HtmlElement element, string indent = "")
+{
+    Console.Write($"{indent}<{element.Name}");
+
+    if (!string.IsNullOrEmpty(element.Id))
+    {
+        Console.Write($" id=\"{element.Id}\"");
+    }
+
+    if (element.Classes.Any())
+    {
+        Console.Write($" class=\"{string.Join(" ", element.Classes)}\"");
+    }
+
+    if (element.Attributes.Any())
+    {
+        Console.Write($" {string.Join(" ", element.Attributes)}");
+    }
+    Console.WriteLine($"{indent}</{element.Name}>");
 }
 
+
+//loading an html page:
 var html = await Load("https://rubybot.co.il/he/features/chat");
-
-
 var cleanHtml = new Regex("\\s+").Replace(html, " ");
 var htmlLines = new Regex("<(.*?)>").Split(cleanHtml).Where(s => s.Length > 0).ToList();
 
-var htmlTree = Serialize(htmlLines);
+var htmlTree = BuildHtmlTree(htmlLines);
 
-string queryString = "div #mydiv .class-name";
-var selector = Selector.FromQueryString(queryString);
-Console.WriteLine(selector.Child.Child);
+//var element = new HtmlElement() { Name = "div", Classes = new List<string>() { "layout-wrapper" } };
+//var desendantsList = element.Descendants();
+//var ancestorsList = element.Ancestors();
 
+string queryString0 = ".MuiBox-root";//57 results
+string queryString1 = "button .MuiButtonBase-root";//5 results
+string queryString2 = "div.layout-wrapper";//only 1 result
+
+
+var selector = Selector.FromQueryString(queryString0);
+var elementsList = HtmlElement.FindElementsBySelector(htmlTree, selector);
+
+
+
+Console.WriteLine("List of " + elementsList.ToList().Count()+" elements found:");
+foreach (var e in elementsList)
+{
+    PrintHtmlElement(e);
+}
