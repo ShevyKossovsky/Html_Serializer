@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace HtmlSerializer
@@ -14,37 +15,48 @@ namespace HtmlSerializer
         public Selector Parent { get; set; }
         public Selector Child { get; set; }
         #region 1
-        public  static Selector FromQueryString(string queryString)
+        public static Selector FromQueryString(string queryString)
         {
             var selectors = queryString.Split(' ');
             var rootSelector = new Selector();
             var currentSelector = rootSelector;
+            List<string> parts = new List<string>();
 
             foreach (var selectorStr in selectors)
             {
-                var parts = selectorStr.Split('#');
-                if (parts.Length > 1)
-                {
-                    currentSelector.Id = parts[1];
-                    parts = parts[0].Split('.');
-                }
-                else
-                {
-                    parts = selectorStr.Split('.');
-                }
+                parts = Regex.Matches(selectorStr, @"(?:\.|#)?[\w-]+")
+                               .Cast<Match>()
+                               .Select(m => m.Value)
+                               .ToList();
 
-                if (!string.IsNullOrEmpty(parts[0]))
+                for (int i = 0; i < parts.Count; i++)
                 {
-                    currentSelector.TagName = parts[0];
+                    var part = parts[i];
+
+                    if (string.IsNullOrEmpty(part))
+                    {
+                        continue;
+                    }
+
+                    if (part.StartsWith("#"))
+                    {
+                        currentSelector.Id = part.Substring(1);
+                    }
+                    else if (part.StartsWith("."))
+                    {
+                        currentSelector.Classes.Add(part.Substring(1));
+                    }
+                    else
+                    {
+                        if (i == 0 && (HtmlHelper.Instance.HtmlTags.Contains(part)
+                            || HtmlHelper.Instance.HtmlVoidTags.Contains(part)))
+                        {
+                            currentSelector.TagName = part;
+                        }
+                    }
+
+
                 }
-
-                currentSelector.Classes = new List<string>();
-
-                if (parts.Length > 1)
-                {
-                    currentSelector.Classes.AddRange(parts[1..]);
-                }
-
                 var newSelector = new Selector();
                 currentSelector.Child = newSelector;
                 newSelector.Parent = currentSelector;
@@ -53,7 +65,8 @@ namespace HtmlSerializer
 
             return rootSelector;
         }
-        public  override string ToString()
+
+        public override string ToString()
         {
             var result = TagName ?? string.Empty;
 

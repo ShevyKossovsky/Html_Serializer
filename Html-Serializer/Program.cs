@@ -1,7 +1,6 @@
 ﻿using HtmlSerializer;
 using System;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 static async Task<string> Load(string url)
 {
@@ -10,7 +9,7 @@ static async Task<string> Load(string url)
     var html = await response.Content.ReadAsStringAsync();
     return html;
 }
-static HtmlElement BuildHtmlTree(List<string> htmlLines)
+static HtmlElement Serialize(List<string> htmlLines)
 {
     var root = new HtmlElement();
     var currentElement = root;
@@ -140,7 +139,7 @@ var html = await Load("https://rubybot.co.il/he/features/chat");
 var cleanHtml = new Regex("\\s+").Replace(html, " ");
 var htmlLines = new Regex("<(.*?)>").Split(cleanHtml).Where(s => s.Length > 0).ToList();
 
-var htmlTree = BuildHtmlTree(htmlLines);
+var htmlTree = Serialize(htmlLines);
 
 //var element = new HtmlElement() { Name = "div", Classes = new List<string>() { "layout-wrapper" } };
 //var desendantsList = element.Descendants();
@@ -151,12 +150,13 @@ string queryString1 = "button .MuiButtonBase-root";//5 results
 string queryString2 = "div.layout-wrapper";//only 1 result
 
 
-var selector = Selector.FromQueryString(queryString0);
+var selector = Selector.FromQueryString(queryString1);
 var elementsList = HtmlElement.FindElementsBySelector(htmlTree, selector);
 
 
 
-Console.WriteLine("List of " + elementsList.ToList().Count()+" elements found:");
+
+Console.WriteLine("List of " + elementsList.ToList().Count() + " elements found:");
 foreach (var e in elementsList)
 {
     PrintHtmlElement(e);
