@@ -1,4 +1,4 @@
-# Html Serializer Project
+# Html Serializer Project (developed by S. kossovsky)
 
 ## Description
 
